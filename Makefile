@@ -1,7 +1,6 @@
 .DEFAULT_GOAL := check
 
 init:
-	nvm use
 	@yarn install
 
 start:
