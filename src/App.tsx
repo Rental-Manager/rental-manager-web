@@ -1,26 +1,16 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { Router } from './components/route/Router';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo"/>
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+// Arranca la app y miramos que si existe un uusario en sesión (localStorage);
+// Si el usuario existe renderizaremos directamente la página de /home
+// En caso de que le usuario no exista renderizaremos la landing.
+
+const App = () => {
+
+  const user = {}; //TODO: obtener el usuario en sesión.
+
+  return <Router user={user}/>;
+};
 
 export default App;
