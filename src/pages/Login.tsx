@@ -1,5 +1,7 @@
 import React, { FC } from 'react';
 import styled from '@emotion/styled';
+import { useMainContext } from '../context/ContextProvider';
+import { useHistory } from 'react-router-dom';
 
 const Container = styled.div`
   flex: 1;
@@ -9,7 +11,15 @@ const Container = styled.div`
 
 export const Login: FC = () => {
 
+  const mainStore = useMainContext();
+  const history = useHistory();
+
+  const handleLogin = async () => {
+    await mainStore.doLogin();
+    history.push('/home');
+  };
+
   return <Container>
-    Login
+    <button onClick={handleLogin} color="red">Login</button>
   </Container>;
 };
