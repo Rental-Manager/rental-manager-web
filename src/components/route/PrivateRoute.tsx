@@ -10,7 +10,7 @@ interface PrivateRouteProps {
 export const PrivateRoute: FC<PrivateRouteProps> = ({ user, component, path }) => {
 
   if (!user) {
-    return <Redirect to={{ pathname: '/login' }}/>;
+    return <Redirect to={{ pathname: '/' }}/>;
   }
 
   return <Route exact path={path} component={component}/>;
