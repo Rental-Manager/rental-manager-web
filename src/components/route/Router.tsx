@@ -5,12 +5,15 @@ import { PrivateRoute } from './PrivateRoute';
 import { Home } from '../../pages/Home';
 import { Login } from '../../pages/Login';
 import { Register } from '../../pages/Register';
+import { observer } from 'mobx-react-lite';
+import { useMainContext } from '../../context/ContextProvider';
 
 interface RouterProps {
   user?: any;
 }
 
-export const Router: FC<RouterProps> = ({ user }) => {
+export const Router: FC<RouterProps> = observer(() => {
+  const { user } = useMainContext();
 
   return <BrowserRouter>
     <Switch>
@@ -21,4 +24,5 @@ export const Router: FC<RouterProps> = ({ user }) => {
       <PrivateRoute component={Home} path={'/home'} user={user}/>
     </Switch>
   </BrowserRouter>;
-};
+});
+
